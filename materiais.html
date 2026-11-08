@@ -1,0 +1,3038 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Alfa Educação | Materiais</title>
+
+
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
+
+    <link
+        rel="icon"
+        href="Logo%20em%20PNG.png"
+        type="image/png"
+        sizes="32x32">
+
+    <link
+        rel="shortcut icon"
+        href="Logo%20em%20PNG.png"
+        type="image/png">
+
+    <link
+        rel="apple-touch-icon"
+        href="Logo%20em%20PNG.png">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #f7f5fa;
+            color: #24142f;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible {
+            outline: 3px solid #7c3aed;
+            outline-offset: 3px;
+        }
+
+
+        /* =====================================================
+           CABEÇALHO
+        ====================================================== */
+
+        header {
+            width: 100%;
+            height: 90px;
+
+            background:
+                rgba(91, 5, 161, 0.97);
+
+            padding: 14px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            box-shadow:
+                0 4px 20px
+                rgba(0, 0, 0, 0.12);
+
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 145px;
+            height: 62px;
+            object-fit: contain;
+            object-position: left center;
+            display: block;
+        }
+
+        .menu-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        .svg-icon {
+            width: 20px;
+            height: 20px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+
+        /* =====================================================
+           BOTÃO INÍCIO
+        ====================================================== */
+
+        .btn-inicio {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            height: 45px;
+            padding: 0 18px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255, 255, 255, 0.15);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.25);
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .btn-inicio .svg-icon {
+            width: 19px;
+            height: 19px;
+        }
+
+        .btn-inicio:hover {
+            background:
+                rgba(255, 255, 255, 0.25);
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* =====================================================
+           BOTÃO PERFIL
+        ====================================================== */
+
+        .btn-perfil {
+            width: 45px;
+            height: 45px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.25);
+
+            background:
+                rgba(255, 255, 255, 0.15);
+
+            color: white;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .btn-perfil .svg-icon {
+            width: 23px;
+            height: 23px;
+        }
+
+        .btn-perfil:hover {
+            background:
+                rgba(255, 255, 255, 0.25);
+
+            transform:
+                scale(1.08);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-perfil.ativo {
+            background:
+                rgba(255, 255, 255, 0.30);
+        }
+
+
+        /* =====================================================
+           MENU DE CONTATO
+        ====================================================== */
+
+        .menu-contato {
+            position: absolute;
+            top: 58px;
+            right: 0;
+
+            width: 260px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(44, 15, 62, 0.22);
+
+            border:
+                1px solid #e5ddec;
+
+            padding: 20px;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(-15px);
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0.3s ease;
+
+            transform-origin:
+                top right;
+
+            z-index: 200;
+        }
+
+        .menu-contato.ativo {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0);
+        }
+
+        .menu-contato h3 {
+            color: #4b1a68;
+            font-size: 18px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .opcao-contato {
+            width: 100%;
+            min-height: 55px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 12px 14px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+            color: #351346;
+
+            font-weight: 700;
+
+            margin-top: 8px;
+
+            background: #f7f5fa;
+
+            border:
+                1px solid transparent;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .opcao-contato:hover {
+            transform:
+                translateX(4px);
+
+            background:
+                #eee5f7;
+
+            border-color:
+                #d7bced;
+        }
+
+        .icone-contato {
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            border-radius: 11px;
+
+            flex-shrink: 0;
+
+            box-shadow:
+                0 3px 10px
+                rgba(44, 15, 62, 0.08);
+        }
+
+        .icone-contato svg {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .icone-whatsapp {
+            color: #25D366;
+        }
+
+        .icone-instagram {
+            background:
+                linear-gradient(
+                    135deg,
+                    #feda75,
+                    #fa7e1e,
+                    #d62976,
+                    #962fbf,
+                    #4f5bd5
+                );
+        }
+
+        .icone-instagram svg {
+            color: white;
+        }
+
+
+        /* =====================================================
+           ÁREA PRINCIPAL
+        ====================================================== */
+
+        main {
+            min-height:
+                calc(100vh - 90px);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            position: relative;
+
+            padding:
+                60px 0 80px;
+
+            overflow: hidden;
+        }
+
+        main::before,
+        main::after {
+            content: "";
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        main::before {
+            width: 450px;
+            height: 450px;
+
+            background:
+                rgba(124, 58, 237, 0.08);
+
+            top: -180px;
+            left: -180px;
+        }
+
+        main::after {
+            width: 500px;
+            height: 500px;
+
+            background:
+                rgba(91, 5, 161, 0.06);
+
+            bottom: -250px;
+            right: -180px;
+        }
+
+
+        /* =====================================================
+           TÍTULO
+        ====================================================== */
+
+        .titulo-area {
+            position: relative;
+            z-index: 5;
+
+            text-align: center;
+
+            padding:
+                0 20px;
+
+            margin-bottom: 30px;
+
+            animation:
+                aparecer 0.8s ease;
+        }
+
+        .etiqueta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            background: #eee5f7;
+            color: #5b05a1;
+
+            padding: 8px 16px;
+
+            border-radius: 50px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            margin-bottom: 20px;
+
+            border:
+                1px solid #e2d2f0;
+        }
+
+        h1 {
+            font-size:
+                clamp(38px, 5vw, 58px);
+
+            line-height: 1.08;
+
+            letter-spacing: -2px;
+
+            color: #250044;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            color: #7c3aed;
+        }
+
+        .subtitulo {
+            max-width: 650px;
+            margin: 0 auto;
+
+            color: #625b68;
+
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           PESQUISA
+        ====================================================== */
+
+        .area-pesquisa {
+            width: 100%;
+            max-width: 650px;
+
+            padding:
+                0 20px;
+
+            position: relative;
+            z-index: 6;
+
+            margin-bottom: 25px;
+        }
+
+        .pesquisa-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .icone-pesquisa {
+            position: absolute;
+
+            left: 22px;
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 20px;
+            height: 20px;
+
+            color: #7c3aed;
+
+            pointer-events: none;
+        }
+
+        .icone-pesquisa svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        #campoPesquisa {
+            width: 100%;
+            height: 58px;
+
+            border:
+                1px solid #dfd2e8;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,0.95);
+
+            padding:
+                0 25px 0 55px;
+
+            font-size: 16px;
+            color: #301541;
+
+            outline: none;
+
+            box-shadow:
+                0 10px 30px
+                rgba(44,15,62,0.08);
+
+            transition:
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        #campoPesquisa::placeholder {
+            color: #9b8fa3;
+        }
+
+        #campoPesquisa:focus {
+            border-color:
+                #7c3aed;
+
+            box-shadow:
+                0 15px 35px
+                rgba(91,5,161,0.15);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           RESULTADOS
+        ====================================================== */
+
+        .resultado-pesquisa {
+            width: 100%;
+            max-width: 1050px;
+
+            padding:
+                0 20px;
+
+            position: relative;
+            z-index: 8;
+
+            display: none;
+
+            margin-bottom: 35px;
+        }
+
+        .resultado-pesquisa.ativo {
+            display: block;
+        }
+
+        .titulo-resultados {
+            font-size: 17px;
+            font-weight: 800;
+
+            color: #4b1a68;
+
+            margin-bottom: 18px;
+
+            text-align: center;
+        }
+
+        .grade-resultados {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 16px;
+        }
+
+        .resultado-item {
+            background:
+                rgba(255,255,255,0.98);
+
+            border:
+                1px solid #e5ddec;
+
+            border-radius: 16px;
+
+            padding: 18px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            text-decoration: none;
+
+            color: #351346;
+
+            font-weight: 750;
+
+            box-shadow:
+                0 8px 22px
+                rgba(44,15,62,0.07);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .resultado-item:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #cdb1e8;
+
+            box-shadow:
+                0 18px 35px
+                rgba(91,5,161,0.14);
+        }
+
+        .resultado-item .emoji {
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+        .resultado-item .emoji svg {
+            width: 30px;
+            height: 30px;
+
+            color: #5b05a1;
+        }
+
+        .sem-resultados {
+            display: none;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.75);
+
+            border:
+                1px dashed #cdb1e8;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            color: #75677c;
+        }
+
+
+        /* =====================================================
+           CARROSSEL
+        ====================================================== */
+
+        .carrossel-wrapper {
+            width: 100%;
+
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            padding:
+                45px 0;
+        }
+
+        .carrossel-wrapper.escondido {
+            display: none;
+        }
+
+        .carrossel-wrapper::before,
+        .carrossel-wrapper::after {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            bottom: 0;
+
+            width: 13%;
+
+            z-index: 10;
+
+            pointer-events: none;
+        }
+
+        .carrossel-wrapper::before {
+            left: 0;
+
+            background:
+                linear-gradient(
+                    to right,
+                    #f7f5fa,
+                    rgba(247,245,250,0)
+                );
+        }
+
+        .carrossel-wrapper::after {
+            right: 0;
+
+            background:
+                linear-gradient(
+                    to left,
+                    #f7f5fa,
+                    rgba(247,245,250,0)
+                );
+        }
+
+        .janela-carrossel {
+            width: 100%;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .carrossel {
+            display: flex;
+            align-items: center;
+
+            gap: 20px;
+
+            width: max-content;
+
+            will-change: transform;
+
+            transform:
+                translate3d(0, 0, 0);
+
+            padding:
+                15px 0;
+        }
+
+
+        /* =====================================================
+           GUIAS
+        ====================================================== */
+
+        .guia {
+            width: 155px;
+            height: 195px;
+
+            flex-shrink: 0;
+
+            background:
+                rgba(255, 255, 255, 0.97);
+
+            border:
+                1px solid #e5ddec;
+
+            border-radius: 18px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            color: #301541;
+
+            padding:
+                18px 10px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(44, 15, 62, 0.08);
+
+            transition:
+                transform 0.45s cubic-bezier(.2,.8,.2,1),
+                box-shadow 0.45s ease,
+                border-color 0.45s ease,
+                background 0.45s ease,
+                opacity 0.45s ease;
+
+            position: relative;
+
+            cursor: pointer;
+
+            z-index: 1;
+        }
+
+        .icone {
+            width: 58px;
+            height: 58px;
+
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #eee5f7;
+
+            font-size: 26px;
+
+            margin-bottom: 14px;
+
+            transition:
+                transform 0.4s ease,
+                background 0.4s ease;
+        }
+
+        .icone svg {
+            width: 34px;
+            height: 34px;
+
+            display: block;
+
+            color: #5b05a1;
+        }
+
+        .numero {
+            font-size: 10px;
+
+            color: #95889d;
+
+            margin-bottom: 6px;
+
+            font-weight: 700;
+        }
+
+        .nome {
+            font-size: 11px;
+
+            font-weight: 800;
+
+            color: #351346;
+
+            line-height: 1.25;
+
+            max-width: 135px;
+
+            text-transform: uppercase;
+
+            overflow-wrap: break-word;
+        }
+
+        .carrossel-wrapper:hover .guia {
+            opacity: 0.52;
+
+            transform:
+                scale(0.94);
+        }
+
+        .carrossel-wrapper:hover .guia:hover {
+            opacity: 1;
+
+            transform:
+                scale(1.16)
+                translateY(-10px);
+
+            background:
+                #ffffff;
+
+            border-color:
+                #cdb1e8;
+
+            box-shadow:
+                0 25px 50px
+                rgba(91, 5, 161, 0.20),
+                0 0 0 5px
+                rgba(124, 58, 237, 0.06);
+
+            z-index: 20;
+        }
+
+        .guia:hover .icone {
+            transform:
+                scale(1.08)
+                translateY(-3px);
+
+            background:
+                #e5d4f5;
+        }
+
+
+        /* =====================================================
+           BOTÕES LATERAIS
+        ====================================================== */
+
+        .controle {
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 48px;
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.95);
+
+            color: #5b05a1;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 30;
+
+            box-shadow:
+                0 8px 25px
+                rgba(44,15,62,0.15);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .controle svg {
+            width: 25px;
+            height: 25px;
+
+            display: block;
+
+            margin: auto;
+        }
+
+        .controle:hover {
+            transform:
+                translateY(-50%)
+                scale(1.1);
+
+            background:
+                #ffffff;
+
+            box-shadow:
+                0 12px 30px
+                rgba(44,15,62,0.20);
+        }
+
+        .controle-esquerda {
+            left: 25px;
+        }
+
+        .controle-direita {
+            right: 25px;
+        }
+
+
+        /* =====================================================
+           INDICADOR
+        ====================================================== */
+
+        .indicador {
+            position: relative;
+
+            z-index: 5;
+
+            margin-top: 5px;
+
+            color: #817587;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            text-align: center;
+        }
+
+        .indicador span {
+            color: #6d16b7;
+        }
+
+        .indicador.escondido {
+            display: none;
+        }
+
+
+        /* =====================================================
+           ANIMAÇÃO
+        ====================================================== */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           TABLET
+        ====================================================== */
+
+        @media (max-width: 900px) {
+
+            .guia {
+                width: 145px;
+                height: 185px;
+            }
+
+            .controle {
+                display: none;
+            }
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 80px;
+
+                padding:
+                    12px 18px;
+            }
+
+            .logo img {
+                width: 115px;
+                height: 52px;
+            }
+
+            .menu-header {
+                gap: 8px;
+            }
+
+            .btn-inicio {
+                height: 40px;
+
+                padding:
+                    0 12px;
+
+                font-size: 13px;
+            }
+
+            .btn-perfil {
+                width: 40px;
+                height: 40px;
+            }
+
+            .btn-perfil .svg-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .menu-contato {
+                top: 52px;
+
+                width: 240px;
+
+                right: 0;
+            }
+
+            main {
+                min-height:
+                    calc(100vh - 80px);
+
+                padding:
+                    45px 0 60px;
+            }
+
+            h1 {
+                font-size: 39px;
+
+                letter-spacing:
+                    -1.2px;
+            }
+
+            .subtitulo {
+                font-size: 16px;
+            }
+
+            .titulo-area {
+                margin-bottom: 25px;
+            }
+
+            #campoPesquisa {
+                height: 55px;
+                font-size: 15px;
+            }
+
+            .carrossel-wrapper {
+                padding:
+                    35px 0;
+            }
+
+            .carrossel {
+                gap: 14px;
+            }
+
+            .guia {
+                width: 140px;
+                height: 180px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header>
+
+        <a
+            href="index.html"
+            class="logo">
+
+            <img
+                src="Logo%20em%20PNG.png"
+                alt="Alfa Educação">
+
+        </a>
+
+
+        <div class="menu-header">
+
+
+            <!-- BOTÃO INÍCIO -->
+
+            <a
+                href="index.html"
+                class="btn-inicio"
+                aria-label="Ir para a página inicial">
+
+                <svg
+                    class="svg-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true">
+
+                    <path d="M3 10.5L12 3l9 7.5"></path>
+                    <path d="M5 9.5V21h14V9.5"></path>
+                    <path d="M9 21v-6h6v6"></path>
+
+                </svg>
+
+                <span>Início</span>
+
+            </a>
+
+
+            <!-- BOTÃO PERFIL -->
+
+            <button
+                class="btn-perfil"
+                id="btnPerfil"
+                aria-label="Abrir redes de contato"
+                aria-expanded="false">
+
+                <svg
+                    class="svg-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true">
+
+                    <circle
+                        cx="12"
+                        cy="8"
+                        r="4">
+                    </circle>
+
+                    <path
+                        d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8">
+                    </path>
+
+                </svg>
+
+            </button>
+
+
+            <!-- MENU DE CONTATOS -->
+
+            <div
+                class="menu-contato"
+                id="menuContato">
+
+                <h3>
+                    Redes de Contato
+                </h3>
+
+
+                <!-- WHATSAPP
+                     Para tornar este item clicável, é necessário inserir o número oficial
+                     da Alfa Educação no link wa.me (com código do país e DDD).
+                -->
+
+                <div class="opcao-contato">
+
+                    <div
+                        class="icone-contato icone-whatsapp">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-label="WhatsApp">
+
+                            <path d="M12.04 2C6.5 2 2 6.5 2 12.04c0 1.77.46 3.43 1.26 4.87L2 22l5.25-1.24a10 10 0 0 0 4.79 1.21h.01c5.54 0 10.04-4.5 10.04-10.04C22.09 6.5 17.59 2 12.04 2Zm0 18.31c-1.48 0-2.91-.4-4.16-1.14l-.3-.18-3.12.74.83-3.04-.2-.31a8.27 8.27 0 0 1-1.27-4.34c0-4.55 3.7-8.25 8.25-8.25s8.25 3.7 8.25 8.25-3.7 8.27-8.28 8.27Zm4.52-6.19c-.25-.13-1.48-.73-1.71-.81-.23-.09-.4-.13-.57.13-.17.25-.66.81-.81.98-.15.17-.3.19-.55.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.49-1.4-1.74-.15-.25-.02-.39.11-.51.11-.11.25-.3.38-.45.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.57-1.37-.78-1.88-.2-.49-.41-.42-.57-.43h-.48c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.42 1.44.54.61.19 1.16.16 1.6.1.49-.07 1.48-.61 1.69-1.2.21-.59.21-1.1.15-1.2-.06-.11-.23-.17-.48-.3Z"></path>
+
+                        </svg>
+
+                    </div>
+
+                    <span>
+                        WhatsApp
+                    </span>
+
+                </div>
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    href="https://www.instagram.com/educ.alfa/"
+                    class="opcao-contato"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    <div
+                        class="icone-contato icone-instagram">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-label="Instagram">
+
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="5">
+                            </rect>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="4">
+                            </circle>
+
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="1"
+                                fill="currentColor"
+                                stroke="none">
+                            </circle>
+
+                        </svg>
+
+                    </div>
+
+                    <span>
+                        Instagram
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+
+        <section class="titulo-area">
+
+            <div class="etiqueta">
+                Materiais de estudo
+            </div>
+
+            <h1>
+                Escolha sua
+                <span>área</span>
+            </h1>
+
+            <p class="subtitulo">
+                Encontre materiais, conteúdos e preparatórios
+                organizados especialmente para sua área.
+            </p>
+
+        </section>
+
+
+        <!-- PESQUISA -->
+
+        <section class="area-pesquisa">
+
+            <div class="pesquisa-wrapper">
+
+                <span
+                    class="icone-pesquisa"
+                    aria-hidden="true">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+
+                        <circle
+                            cx="11"
+                            cy="11"
+                            r="7">
+                        </circle>
+
+                        <path
+                            d="m20 20-3.5-3.5">
+                        </path>
+
+                    </svg>
+
+                </span>
+
+                <input
+                    type="text"
+                    id="campoPesquisa"
+                    placeholder="Pesquisar uma área..."
+                    autocomplete="off">
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+
+        <section
+            class="resultado-pesquisa"
+            id="resultadoPesquisa">
+
+            <div
+                class="titulo-resultados"
+                id="tituloResultados">
+
+                Resultados encontrados
+
+            </div>
+
+            <div
+                class="grade-resultados"
+                id="gradeResultados">
+            </div>
+
+            <div
+                class="sem-resultados"
+                id="semResultados">
+
+                Nenhuma área encontrada.
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CARROSSEL
+        ====================================================== -->
+
+        <section
+            class="carrossel-wrapper"
+            id="areaCarrossel">
+
+
+            <button
+                class="controle controle-esquerda"
+                id="btnEsquerda"
+                aria-label="Área anterior">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true">
+
+                    <path
+                        d="M15 5 8 12l7 7"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+                    </path>
+
+                </svg>
+
+            </button>
+
+
+            <div class="janela-carrossel">
+
+                <div
+                    class="carrossel"
+                    id="carrossel">
+
+
+                    <!-- 01 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1cbKEcXQlCKVnZ-GBa1LOlWf1cLI7eXSM?usp=drive_link"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Bancário"
+                        data-icone="money"
+                        data-numero="01">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M7 9h.01M17 15h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">01</div>
+                        <div class="nome">Bancário</div>
+
+                    </a>
+
+
+                    <!-- 02 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1oZ0rYxVQjssv1gWVZRD3hQw-FeWaTR2e?usp=drive_link"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Câmara dos Deputados - ADM"
+                        data-icone="building"
+                        data-numero="02">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 21V4h14v17M3 21h18M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2M10 21v-3h4v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">02</div>
+                        <div class="nome">Câmara dos Deputados - ADM</div>
+
+                    </a>
+
+
+                    <!-- 03 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1gKWZ9B31xmSRIxnKExGaPaFlEGUV6jP5?usp=drive_link"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="CFC"
+                        data-icone="graduation"
+                        data-numero="03">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 9.5 12 5l9 4.5-9 4.5L3 9.5Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M6 11.5V16c2 2 10 2 12 0v-4.5M20 10v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">03</div>
+                        <div class="nome">CFC</div>
+
+                    </a>
+
+
+                    <!-- 04 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/10ruCZgZkRJYses29P-J2uSXGjapS8_Ma?usp=drive_link"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="CNU"
+                        data-icone="brazil"
+                        data-numero="04">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 3 21 7.5 12 21 3 7.5 12 3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">04</div>
+                        <div class="nome">CNU</div>
+
+                    </a>
+
+
+                    <!-- 05 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1C6X7EI41YxcFjIhUHkS4bs7vUcuYDgLZ?usp=drive_link"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Controladoria Geral da União"
+                        data-icone="control"
+                        data-numero="05">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M12 7v10M7 12h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">05</div>
+                        <div class="nome">Controladoria Geral da União</div>
+
+                    </a>
+
+
+                    <!-- 06 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/16UehPdzC7TgDtfXBuwwr12QxV-vs0s6e?usp=drive_link"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Dataprev"
+                        data-icone="computer"
+                        data-numero="06">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="4" y="4" width="16" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M8 21h8M12 17v4M8 9h8M8 12h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">06</div>
+                        <div class="nome">Dataprev</div>
+
+                    </a>
+
+
+                    <!-- 07 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1BZuukz3OoLqIsjBCbh9JcXHfJj_sUX84?usp=drive_link"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Educação"
+                        data-icone="graduation"
+                        data-numero="07">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 9.5 12 5l9 4.5-9 4.5L3 9.5Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M6 11.5V16c2 2 10 2 12 0v-4.5M20 10v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">07</div>
+                        <div class="nome">Educação</div>
+
+                    </a>
+
+
+                    <!-- 08 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1i-NVN1fQJZHpUD_3v4D7rp_Xx_CKpYmY?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Embrapa"
+                        data-icone="leaf"
+                        data-numero="08">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 4C11 4 5 8 5 14c0 3.5 2.5 6 6 6 6 0 9-7 9-16Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M5 20c2-5 6-8 11-10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">08</div>
+                        <div class="nome">Embrapa</div>
+
+                    </a>
+
+
+                    <!-- 09 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1024Q1P8GpZwAuYM81-DMk5LVQSG9tJsP?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Gerais"
+                        data-icone="clipboard"
+                        data-numero="09">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="5" y="4" width="14" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M9 4.5V3h6v1.5M8 9h8M8 13h8M8 17h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">09</div>
+                        <div class="nome">Gerais</div>
+
+                    </a>
+
+
+                    <!-- 10 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1zstuOuvf2ZcdWZGbutE1x8Q1hrkPleGw?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Ibama"
+                        data-icone="tree"
+                        data-numero="10">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 4 7 10h3l-4 5h5v5h2v-5h5l-4-5h3l-5-6Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">10</div>
+                        <div class="nome">Ibama</div>
+
+                    </a>
+
+
+                    <!-- 11 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1C7qC9g9eRhddk2-hSZpre6nraZgJQaS8?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="IBGE"
+                        data-icone="chart"
+                        data-numero="11">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 19V5M4 19h16" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="m7 15 4-4 3 2 5-6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">11</div>
+                        <div class="nome">IBGE</div>
+
+                    </a>
+
+
+                    <!-- 12 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1xbrUMei3Zag5Q9jT_MXTavtAzt9iSFf0?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="ICMBio"
+                        data-icone="leaf"
+                        data-numero="12">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M20 4C11 4 5 8 5 14c0 3.5 2.5 6 6 6 6 0 9-7 9-16Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M5 20c2-5 6-8 11-10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">12</div>
+                        <div class="nome">ICMBio</div>
+
+                    </a>
+
+
+                    <!-- 13 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1vKtUR7Mh_dMDKDH8AVUOuUG7yVjNHyww?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="INSS"
+                        data-icone="building"
+                        data-numero="13">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 21V4h14v17M3 21h18M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2M10 21v-3h4v3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">13</div>
+                        <div class="nome">INSS</div>
+
+                    </a>
+
+
+                    <!-- 14 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1klLV9NMKX7QkLxZFdpoKRqr24h0WE4DT?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Jurídicas"
+                        data-icone="scales"
+                        data-numero="14">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 4v16M7 7h10M5 7l-3 5h6L5 7ZM19 7l-3 5h6l-3-5ZM8 20h8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">14</div>
+                        <div class="nome">Jurídicas</div>
+
+                    </a>
+
+
+                    <!-- 15 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1TQhXvCnlEhQYPonCf_QmDAWdSIt55y0x?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Legislativa"
+                        data-icone="building"
+                        data-numero="15">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 21V4h14v17M3 21h18M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2M10 21v-3h4v3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">15</div>
+                        <div class="nome">Legislativa</div>
+
+                    </a>
+
+
+                    <!-- 16 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1S0BRPaO-V-O4zFO5fSPDHD1IH2EBi0Vd?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Leis e Códigos"
+                        data-icone="scroll"
+                        data-numero="16">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7 4h11v16H7a3 3 0 0 1 0-16Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M7 4v16M10 8h5M10 12h5M10 16h4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">16</div>
+                        <div class="nome">Leis e Códigos</div>
+
+                    </a>
+
+
+                    <!-- 17 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1nAKpS0RWnC3llBslBS2XjYNqQtNsRonx?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Petrobras - Transpetro"
+                        data-icone="oil"
+                        data-numero="17">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 3h6v3l2 2v11H7V8l2-2V3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M10 12h4" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">17</div>
+                        <div class="nome">Petrobras - Transpetro</div>
+
+                    </a>
+
+
+                    <!-- 18 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1DI2lAmY9796TXlcmNrIR6SpJm-x4JGQZ?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Policial"
+                        data-icone="police"
+                        data-numero="18">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 3 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M12 8v6M9 11h6" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">18</div>
+                        <div class="nome">Policial</div>
+
+                    </a>
+
+
+                    <!-- 19 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1wyyB0kn7UnwB3s2k3XI6h86zfaxZwIbb?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Receita Federal"
+                        data-icone="money"
+                        data-numero="19">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M7 9h.01M17 15h.01" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">19</div>
+                        <div class="nome">Receita Federal</div>
+
+                    </a>
+
+
+                    <!-- 20 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/15QnhH4DGeQrvC4FOkxAMgwzyZGgOzDwT?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Saúde"
+                        data-icone="medical"
+                        data-numero="20">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M8 4h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M9 4V3h6v1M12 8v6M9 11h6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">20</div>
+                        <div class="nome">Saúde</div>
+
+                    </a>
+
+
+                    <!-- 21 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1hwms2jQXDL1fogY8lrr5h2EwO5oZi6PV?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Sedes DF"
+                        data-icone="building"
+                        data-numero="21">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 21V4h14v17M3 21h18M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2M10 21v-3h4v3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">21</div>
+                        <div class="nome">Sedes DF</div>
+
+                    </a>
+
+
+                    <!-- 22 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1d1m2_WUKbcJQt5HIFNaxu8WB9mb7M1qr?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Sefaz"
+                        data-icone="money"
+                        data-numero="22">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M7 9h.01M17 15h.01" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">22</div>
+                        <div class="nome">Sefaz</div>
+
+                    </a>
+
+
+                    <!-- 23 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1x9gaja8p9-C7_67hXZcTX0koyXvD1ZmL?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Seplan SE"
+                        data-icone="file"
+                        data-numero="23">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M6 3h8l4 4v14H6V3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M14 3v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">23</div>
+                        <div class="nome">Seplan SE</div>
+
+                    </a>
+
+
+                    <!-- 24 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1IlXQ0vOkIexhW40jvUBbZLzOqINT3D3t?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="TCE"
+                        data-icone="scales"
+                        data-numero="24">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 4v16M7 7h10M5 7l-3 5h6L5 7ZM19 7l-3 5h6l-3-5ZM8 20h8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">24</div>
+                        <div class="nome">TCE</div>
+
+                    </a>
+
+
+                    <!-- 25 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1gR7JImrhVtC6ijayYCA4LFc-urZQ8I29?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="TCU"
+                        data-icone="scales"
+                        data-numero="25">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 4v16M7 7h10M5 7l-3 5h6L5 7ZM19 7l-3 5h6l-3-5ZM8 20h8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">25</div>
+                        <div class="nome">TCU</div>
+
+                    </a>
+
+
+                    <!-- 26 -->
+
+                    <a
+                        href="https://drive.google.com/drive/folders/1rR0HOvfT-0J16q-3ZpwpDJoVa2iWiJ0z?usp=sharing"
+                        class="guia"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-nome="Tribunais"
+                        data-icone="scales"
+                        data-numero="26">
+
+                        <div class="icone">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 4v16M7 7h10M5 7l-3 5h6L5 7ZM19 7l-3 5h6l-3-5ZM8 20h8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+
+                        <div class="numero">26</div>
+                        <div class="nome">Tribunais</div>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="controle controle-direita"
+                id="btnDireita"
+                aria-label="Próxima área">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true">
+
+                    <path
+                        d="m9 5 7 7-7 7"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+                    </path>
+
+                </svg>
+
+            </button>
+
+        </section>
+
+
+        <div
+            class="indicador"
+            id="indicador">
+
+            Passe o mouse sobre uma área para
+            <span>destacá-la</span>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           ÍCONES
+        ====================================================== */
+
+        function gerarIconeSVG(tipo) {
+
+            const icones = {
+
+                money:
+                `<svg viewBox="0 0 24 24">
+                    <rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M7 9h.01M17 15h.01" stroke="currentColor" stroke-width="2"/>
+                </svg>`,
+
+                building:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M5 21V4h14v17M3 21h18M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2M10 21v-3h4v3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                graduation:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M3 9.5 12 5l9 4.5-9 4.5L3 9.5Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M6 11.5V16c2 2 10 2 12 0v-4.5M20 10v5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                brazil:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M12 3 21 7.5 12 21 3 7.5 12 3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                </svg>`,
+
+                control:
+                `<svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M12 7v10M7 12h10" stroke="currentColor" stroke-width="1.8"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                </svg>`,
+
+                computer:
+                `<svg viewBox="0 0 24 24">
+                    <rect x="4" y="4" width="16" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M8 21h8M12 17v4M8 9h8M8 12h5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                education:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M12 4 4 8l8 4 8-4-8-4Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M7 10v5c2 2 8 2 10 0v-5M20 9v6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                leaf:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M20 4C11 4 5 8 5 14c0 3.5 2.5 6 6 6 6 0 9-7 9-16Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M5 20c2-5 6-8 11-10" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                clipboard:
+                `<svg viewBox="0 0 24 24">
+                    <rect x="5" y="4" width="14" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M9 4.5V3h6v1.5M8 9h8M8 13h8M8 17h5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                tree:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M12 4 7 10h3l-4 5h5v5h2v-5h5l-4-5h3l-5-6Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                </svg>`,
+
+                chart:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M4 19V5M4 19h16" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="m7 15 4-4 3 2 5-6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                scroll:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M7 4h11v16H7a3 3 0 0 1 0-16Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M7 4v16M10 8h5M10 12h5M10 16h4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                oil:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M9 3h6v3l2 2v11H7V8l2-2V3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M10 12h4" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                police:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M12 3 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M12 8v6M9 11h6" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                medical:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M8 4h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M9 4V3h6v1M12 8v6M9 11h6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                file:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M6 3h8l4 4v14H6V3Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M14 3v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`,
+
+                scales:
+                `<svg viewBox="0 0 24 24">
+                    <path d="M12 4v16M7 7h10M5 7l-3 5h6L5 7ZM19 7l-3 5h6l-3-5ZM8 20h8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                </svg>`
+            };
+
+            return icones[tipo] || icones.file;
+        }
+
+
+        /* =====================================================
+           MENU DE CONTATO
+        ====================================================== */
+
+        const btnPerfil =
+            document.getElementById("btnPerfil");
+
+        const menuContato =
+            document.getElementById("menuContato");
+
+        btnPerfil.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                menuContato.classList.toggle("ativo");
+
+                btnPerfil.classList.toggle("ativo");
+
+                const aberto =
+                    menuContato.classList.contains("ativo");
+
+                btnPerfil.setAttribute(
+                    "aria-expanded",
+                    aberto
+                );
+            }
+        );
+
+        menuContato.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+            }
+        );
+
+        document.addEventListener(
+            "click",
+            function () {
+
+                menuContato.classList.remove("ativo");
+
+                btnPerfil.classList.remove("ativo");
+
+                btnPerfil.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           CARROSSEL
+        ====================================================== */
+
+        const carrossel =
+            document.getElementById("carrossel");
+
+        const areaCarrossel =
+            document.getElementById("areaCarrossel");
+
+        const btnEsquerda =
+            document.getElementById("btnEsquerda");
+
+        const btnDireita =
+            document.getElementById("btnDireita");
+
+        const campoPesquisa =
+            document.getElementById("campoPesquisa");
+
+        const resultadoPesquisa =
+            document.getElementById("resultadoPesquisa");
+
+        const gradeResultados =
+            document.getElementById("gradeResultados");
+
+        const semResultados =
+            document.getElementById("semResultados");
+
+        const tituloResultados =
+            document.getElementById("tituloResultados");
+
+        const indicador =
+            document.getElementById("indicador");
+
+        const guiasOriginais =
+            Array.from(
+                carrossel.querySelectorAll(".guia")
+            );
+
+        function obterGapCarrossel() {
+            return (
+                parseFloat(
+                    getComputedStyle(carrossel).columnGap
+                ) || 0
+            );
+        }
+
+        let posicao = 0;
+
+        let velocidade = 0.45;
+
+        /*
+         * Velocidade nas extremidades.
+         *
+         * Aproximadamente 35px por segundo,
+         * equivalente a cerca de 1 cartão a
+         * cada 5 segundos.
+         */
+        let velocidadeLateral = 35 / 60;
+
+        let pausado = false;
+
+        let animacao = null;
+
+        let larguraSequencia = 0;
+
+
+        /*
+         * Estado do mouse
+         *
+         * -1 = esquerda
+         *  1 = direita
+         *  0 = centro
+         */
+
+        let mouseNaGuia = false;
+
+        let mouseNaLateral = false;
+
+        let direcaoLateral = 0;
+
+
+        /* =====================================================
+           DADOS
+        ====================================================== */
+
+        const areas =
+            guiasOriginais.map(
+                guia => ({
+
+                    nome:
+                        guia.dataset.nome,
+
+                    icone:
+                        guia.dataset.icone,
+
+                    numero:
+                        guia.dataset.numero,
+
+                    link:
+                        guia.getAttribute("href")
+
+                })
+            );
+
+
+        /* =====================================================
+           PESQUISA
+        ====================================================== */
+
+        campoPesquisa.addEventListener(
+            "input",
+            () => {
+
+                const normalizarTexto = (texto) =>
+                    texto
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .toLowerCase()
+                        .trim();
+
+                const termo = normalizarTexto(
+                    campoPesquisa.value
+                );
+
+                gradeResultados.innerHTML = "";
+
+                if (termo === "") {
+
+                    resultadoPesquisa.classList.remove(
+                        "ativo"
+                    );
+
+                    areaCarrossel.classList.remove(
+                        "escondido"
+                    );
+
+                    indicador.classList.remove(
+                        "escondido"
+                    );
+
+                    semResultados.style.display =
+                        "none";
+
+                    return;
+                }
+
+                const encontrados =
+                    areas.filter(
+                        area =>
+                            normalizarTexto(area.nome)
+                                .includes(termo)
+                    );
+
+                resultadoPesquisa.classList.add(
+                    "ativo"
+                );
+
+                areaCarrossel.classList.add(
+                    "escondido"
+                );
+
+                indicador.classList.add(
+                    "escondido"
+                );
+
+                if (encontrados.length === 0) {
+
+                    tituloResultados.textContent =
+                        "Resultado da pesquisa";
+
+                    semResultados.style.display =
+                        "block";
+
+                    return;
+                }
+
+                semResultados.style.display =
+                    "none";
+
+                tituloResultados.textContent =
+                    `${encontrados.length} resultado(s) encontrado(s)`;
+
+                encontrados.forEach(
+                    area => {
+
+                        const item =
+                            document.createElement("a");
+
+                        item.className =
+                            "resultado-item";
+
+                        item.href =
+                            area.link;
+
+                        if (area.link !== "#") {
+
+                            item.target =
+                                "_blank";
+
+                            item.rel =
+                                "noopener noreferrer";
+                        }
+
+                        item.innerHTML =
+                            `
+                            <span class="emoji">
+                                ${gerarIconeSVG(area.icone)}
+                            </span>
+
+                            <span>
+                                ${area.numero}
+                                — ${area.nome}
+                            </span>
+                            `;
+
+                        gradeResultados.appendChild(
+                            item
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           LOOP INFINITO
+        ====================================================== */
+
+        function criarLoop() {
+
+            const segundaSequencia =
+                document.createDocumentFragment();
+
+            guiasOriginais.forEach(
+                guia => {
+
+                    const clone =
+                        guia.cloneNode(true);
+
+                    clone.classList.add("clone");
+
+                    segundaSequencia.appendChild(
+                        clone
+                    );
+
+                }
+            );
+
+            carrossel.appendChild(
+                segundaSequencia
+            );
+
+            requestAnimationFrame(
+                calcularLargura
+            );
+        }
+
+
+        /* =====================================================
+           CALCULAR LARGURA
+        ====================================================== */
+
+        function calcularLargura() {
+
+            if (!guiasOriginais.length) {
+                return;
+            }
+
+            const larguraGuia =
+                guiasOriginais[0]
+                .getBoundingClientRect()
+                .width;
+
+            const gap = obterGapCarrossel();
+
+            larguraSequencia =
+                (larguraGuia * guiasOriginais.length)
+                +
+                (gap * guiasOriginais.length);
+        }
+
+
+        /* =====================================================
+           CORRIGIR LOOP
+        ====================================================== */
+
+        function corrigirLoop() {
+
+            if (larguraSequencia <= 0) {
+                return;
+            }
+
+            if (
+                Math.abs(posicao)
+                >= larguraSequencia
+            ) {
+
+                posicao +=
+                    larguraSequencia;
+            }
+
+            if (posicao > 0) {
+
+                posicao -=
+                    larguraSequencia;
+            }
+        }
+
+
+        /* =====================================================
+           APLICAR POSIÇÃO
+        ====================================================== */
+
+        function aplicarPosicao(
+            animado = false
+        ) {
+
+            if (animado) {
+
+                carrossel.style.transition =
+                    "transform 0.5s cubic-bezier(.2,.8,.2,1)";
+
+            } else {
+
+                carrossel.style.transition =
+                    "none";
+            }
+
+            carrossel.style.transform =
+                `translate3d(${posicao}px, 0, 0)`;
+        }
+
+
+        /* =====================================================
+           MOVIMENTO AUTOMÁTICO
+        ====================================================== */
+
+        function moverAutomaticamente() {
+
+            if (!pausado) {
+
+                /*
+                 * Quando o mouse está nas laterais,
+                 * respeitamos a direção indicada.
+                 */
+
+                if (mouseNaLateral) {
+
+                    /*
+                     * EXTREMIDADE ESQUERDA
+                     *
+                     * O conteúdo anda para a esquerda.
+                     */
+
+                    if (direcaoLateral === -1) {
+
+                        posicao -=
+                            velocidadeLateral;
+                    }
+
+
+                    /*
+                     * EXTREMIDADE DIREITA
+                     *
+                     * O conteúdo anda para a direita.
+                     */
+
+                    else if (
+                        direcaoLateral === 1
+                    ) {
+
+                        posicao +=
+                            velocidadeLateral;
+                    }
+
+                } else {
+
+                    /*
+                     * Movimento automático normal.
+                     */
+
+                    posicao -=
+                        velocidade;
+                }
+
+                corrigirLoop();
+
+                aplicarPosicao(false);
+            }
+
+            animacao =
+                requestAnimationFrame(
+                    moverAutomaticamente
+                );
+        }
+
+
+        /* =====================================================
+           PAUSAR SOBRE AS GUIAS
+        ====================================================== */
+
+        function configurarPausaDasGuias() {
+
+            const todasGuias =
+                carrossel.querySelectorAll(".guia");
+
+            todasGuias.forEach(
+                guia => {
+
+                    guia.addEventListener(
+                        "mouseenter",
+                        () => {
+
+                            mouseNaGuia = true;
+
+                            pausado = true;
+
+                            mouseNaLateral = false;
+
+                            direcaoLateral = 0;
+                        }
+                    );
+
+                    guia.addEventListener(
+                        "mouseleave",
+                        () => {
+
+                            mouseNaGuia = false;
+
+                            pausado = false;
+                        }
+                    );
+
+                }
+            );
+        }
+
+
+        /* =====================================================
+           MOVIMENTO NAS EXTREMIDADES
+        ====================================================== */
+
+        areaCarrossel.addEventListener(
+            "mousemove",
+            event => {
+
+                /*
+                 * Em telas pequenas as setas não aparecem
+                 * e o movimento lateral especial é desativado.
+                 */
+
+                if (
+                    window.innerWidth <= 900
+                ) {
+
+                    mouseNaLateral = false;
+
+                    direcaoLateral = 0;
+
+                    return;
+                }
+
+
+                /*
+                 * Se estiver sobre uma guia,
+                 * mantém o carrossel parado.
+                 */
+
+                if (mouseNaGuia) {
+
+                    mouseNaLateral = false;
+
+                    direcaoLateral = 0;
+
+                    pausado = true;
+
+                    return;
+                }
+
+
+                const largura =
+                    areaCarrossel.clientWidth;
+
+
+                const limiteEsquerdo =
+                    areaCarrossel
+                    .getBoundingClientRect()
+                    .left;
+
+
+                const posicaoMouse =
+                    event.clientX -
+                    limiteEsquerdo;
+
+
+                /*
+                 * As laterais ocupam 18% da largura.
+                 */
+
+                const zonaLateral =
+                    largura * 0.18;
+
+
+                /*
+                 * MOUSE NA ESQUERDA
+                 */
+
+                if (
+                    posicaoMouse <=
+                    zonaLateral
+                ) {
+
+                    mouseNaLateral = true;
+
+                    direcaoLateral = -1;
+
+                    pausado = false;
+                }
+
+
+                /*
+                 * MOUSE NA DIREITA
+                 */
+
+                else if (
+                    posicaoMouse >=
+                    largura - zonaLateral
+                ) {
+
+                    mouseNaLateral = true;
+
+                    direcaoLateral = 1;
+
+                    pausado = false;
+                }
+
+
+                /*
+                 * MOUSE NO CENTRO
+                 */
+
+                else {
+
+                    mouseNaLateral = false;
+
+                    direcaoLateral = 0;
+
+                    pausado = false;
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           MOUSE SAI DO CARROSSEL
+        ====================================================== */
+
+        areaCarrossel.addEventListener(
+            "mouseleave",
+            () => {
+
+                mouseNaLateral = false;
+
+                direcaoLateral = 0;
+
+                mouseNaGuia = false;
+
+                pausado = false;
+            }
+        );
+
+
+        /* =====================================================
+           BOTÃO DIREITO
+        ====================================================== */
+
+        btnDireita.addEventListener(
+            "click",
+            () => {
+
+                pausado = true;
+
+                const larguraGuia =
+                    guiasOriginais[0]
+                    .getBoundingClientRect()
+                    .width;
+
+                posicao -=
+                    larguraGuia + obterGapCarrossel();
+
+                corrigirLoop();
+
+                aplicarPosicao(true);
+
+                setTimeout(
+                    () => {
+
+                        pausado = false;
+
+                    },
+                    550
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           BOTÃO ESQUERDO
+        ====================================================== */
+
+        btnEsquerda.addEventListener(
+            "click",
+            () => {
+
+                pausado = true;
+
+                const larguraGuia =
+                    guiasOriginais[0]
+                    .getBoundingClientRect()
+                    .width;
+
+                posicao +=
+                    larguraGuia + obterGapCarrossel();
+
+                corrigirLoop();
+
+                aplicarPosicao(true);
+
+                setTimeout(
+                    () => {
+
+                        pausado = false;
+
+                    },
+                    550
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ====================================================== */
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                calcularLargura();
+
+                velocidade =
+                    window.innerWidth <= 600
+                    ? 0.28
+                    : 0.45;
+            }
+        );
+
+
+        /* =====================================================
+           INICIALIZAÇÃO
+        ====================================================== */
+
+        criarLoop();
+
+        velocidade =
+            window.innerWidth <= 600
+            ? 0.28
+            : 0.45;
+
+        requestAnimationFrame(
+            () => {
+                configurarPausaDasGuias();
+            }
+        );
+
+        moverAutomaticamente();
+
+
+        /* =====================================================
+           ENCERRAMENTO
+        ====================================================== */
+
+        window.addEventListener(
+            "beforeunload",
+            () => {
+
+                cancelAnimationFrame(
+                    animacao
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

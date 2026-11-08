@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alfa Educação | Educação que transforma</title>
+
+    <!-- SEO: meta description -->
+    <meta name="description" content="Alfa Educação — materiais e conteúdos educacionais para ajudar você a alcançar seus objetivos.">
+
+    <!-- Cor da barra do navegador em mobile -->
+    <meta name="theme-color" content="#5b05a1">
+
+    <!-- Open Graph (pré-visualização ao compartilhar em redes sociais) -->
+    <meta property="og:title" content="Alfa Educação | Educação que transforma">
+    <meta property="og:description" content="Educação que transforma o futuro. Encontre materiais, conteúdos e recursos preparados para ajudar você a alcançar seus objetivos.">
+    <meta property="og:image" content="./Logo%20em%20PNG.png">
+    <meta property="og:type" content="website">
+
+
+    <!-- =====================================================
+         FAVICON
+         Usa a mesma logo do cabeçalho
+    ====================================================== -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="./Logo%20em%20PNG.png">
+
+    <link
+        rel="shortcut icon"
+        type="image/png"
+        href="./Logo%20em%20PNG.png">
+
+
+    <style>
+
+        /* =====================================================
+           CONFIGURAÇÕES GERAIS
+        ====================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            background: #f7f5fa;
+
+            color: #24142f;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+        }
+
+
+        /* Acessibilidade: indicador de foco visível para navegação por teclado */
+        a:focus-visible {
+            outline: 3px solid #7c3aed;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+
+
+        /* =====================================================
+           CABEÇALHO
+        ====================================================== */
+
+        header {
+
+            width: 100%;
+
+            height: 90px;
+
+            background:
+                rgba(91, 5, 161, 0.97);
+
+            padding: 14px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            box-shadow:
+                0 4px 20px
+                rgba(0, 0, 0, 0.12);
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+
+
+        /* =====================================================
+           LOGO DA EMPRESA
+        ====================================================== */
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+
+        .logo img {
+
+            width: 145px;
+
+            height: 62px;
+
+            object-fit: contain;
+
+            object-position: left center;
+
+            display: block;
+        }
+
+
+
+        /* =====================================================
+           LOGO DO INSTAGRAM
+        ====================================================== */
+
+        .instagram {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-decoration: none;
+
+            width: 52px;
+
+            height: 52px;
+
+            transition:
+
+                transform 0.3s ease,
+
+                filter 0.3s ease;
+        }
+
+
+        .instagram img {
+
+            width: 42px;
+
+            height: 42px;
+
+            object-fit: contain;
+
+            display: block;
+        }
+
+
+        .instagram:hover {
+
+            transform:
+                scale(1.12);
+
+            filter:
+                brightness(1.1);
+        }
+
+
+
+        /* =====================================================
+           ÁREA PRINCIPAL
+        ====================================================== */
+
+        main {
+
+            min-height:
+                calc(100vh - 90px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                80px 20px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+
+        /* =====================================================
+           CÍRCULOS DECORATIVOS
+        ====================================================== */
+
+        main::before,
+        main::after {
+
+            content: "";
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+
+        main::before {
+
+            width: 450px;
+
+            height: 450px;
+
+            background:
+                rgba(124, 58, 237, 0.08);
+
+            top: -180px;
+
+            left: -180px;
+        }
+
+
+        main::after {
+
+            width: 500px;
+
+            height: 500px;
+
+            background:
+                rgba(91, 5, 161, 0.06);
+
+            bottom: -250px;
+
+            right: -180px;
+        }
+
+
+
+        /* =====================================================
+           CONTEÚDO
+        ====================================================== */
+
+        .conteudo {
+
+            max-width: 850px;
+
+            position: relative;
+
+            z-index: 2;
+
+            animation:
+                aparecer 0.8s ease;
+        }
+
+
+
+        /* =====================================================
+           ETIQUETA
+        ====================================================== */
+
+        .etiqueta {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            background: #eee5f7;
+
+            color: #5b05a1;
+
+            padding:
+                8px 16px;
+
+            border-radius: 50px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            margin-bottom: 25px;
+
+            border:
+                1px solid #e2d2f0;
+        }
+
+
+
+        /* =====================================================
+           TÍTULO
+        ====================================================== */
+
+        h1 {
+
+            font-size:
+                clamp(42px, 6vw, 68px);
+
+            line-height: 1.08;
+
+            letter-spacing: -2px;
+
+            color: #250044;
+
+            margin-bottom: 22px;
+
+            font-weight: 800;
+        }
+
+
+        h1 span {
+
+            color: #7c3aed;
+        }
+
+
+
+        /* =====================================================
+           DESCRIÇÃO
+        ====================================================== */
+
+        .descricao {
+
+            max-width: 650px;
+
+            margin:
+                0 auto 38px;
+
+            color: #625b68;
+
+            font-size: 19px;
+
+            line-height: 1.7;
+        }
+
+
+
+        /* =====================================================
+           BOTÃO ACESSAR MATERIAL
+        ====================================================== */
+
+        .botao-material {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            min-width: 225px;
+
+            padding:
+                17px 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6d16b7,
+                    #7c3aed
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            border-radius: 13px;
+
+            box-shadow:
+
+                0 10px 25px
+                rgba(124, 58, 237, 0.28),
+
+                inset 0 1px 0
+                rgba(255, 255, 255, 0.2);
+
+            transition:
+
+                transform 0.3s ease,
+
+                box-shadow 0.3s ease,
+
+                filter 0.3s ease;
+        }
+
+
+        .botao-material:hover {
+
+            transform:
+                translateY(-5px);
+
+            filter:
+                brightness(1.08);
+
+            box-shadow:
+
+                0 18px 35px
+                rgba(124, 58, 237, 0.38),
+
+                inset 0 1px 0
+                rgba(255, 255, 255, 0.25);
+        }
+
+
+        .botao-material:active {
+
+            transform:
+                translateY(-1px);
+        }
+
+
+
+        /* =====================================================
+           SETA
+        ====================================================== */
+
+        .seta {
+
+            font-size: 20px;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+
+        .botao-material:hover .seta {
+
+            transform:
+                translateX(5px);
+        }
+
+
+
+        /* =====================================================
+           BENEFÍCIOS
+        ====================================================== */
+
+        .beneficios {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 45px;
+
+            margin-top: 55px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .beneficio {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            color: #6b6372;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .check {
+
+            width: 22px;
+
+            height: 22px;
+
+            border-radius: 50%;
+
+            background: #e8dafa;
+
+            color: #6d16b7;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+
+        /* =====================================================
+           ANIMAÇÃO
+        ====================================================== */
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ====================================================== */
+
+        @media (max-width: 600px) {
+
+            header {
+
+                padding:
+                    12px 22px;
+
+                height: 80px;
+            }
+
+
+            .logo img {
+
+                width: 125px;
+
+                height: 55px;
+            }
+
+
+            .instagram {
+
+                width: 46px;
+
+                height: 46px;
+            }
+
+
+            .instagram img {
+
+                width: 36px;
+
+                height: 36px;
+            }
+
+
+            main {
+
+                min-height:
+                    calc(100vh - 80px);
+
+                padding:
+                    60px 20px;
+            }
+
+
+            h1 {
+
+                letter-spacing:
+                    -1.5px;
+            }
+
+
+            .descricao {
+
+                font-size: 17px;
+            }
+
+
+            .botao-material {
+
+                width: 100%;
+
+                max-width: 300px;
+            }
+
+
+            .beneficios {
+
+                gap: 18px;
+
+                margin-top: 40px;
+
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header>
+
+
+        <!-- LOGO DA ALFA EDUCAÇÃO -->
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Página inicial da Alfa Educação">
+
+            <img
+                src="./Logo%20em%20PNG.png"
+                alt="Alfa Educação">
+
+        </a>
+
+
+
+        <!-- =====================================================
+             LOGO DO INSTAGRAM
+             AO CLICAR, ABRE O INSTAGRAM DA ALFA EDUCAÇÃO
+        ====================================================== -->
+
+        <a
+            href="https://www.instagram.com/educ.alfa/"
+            class="instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram da Alfa Educação">
+
+            <img
+                src="./instagram.png"
+                alt="Instagram">
+
+        </a>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+        <div class="conteudo">
+
+
+            <!-- ETIQUETA -->
+
+            <div class="etiqueta">
+
+                🎓 Educação para o seu futuro
+
+            </div>
+
+
+
+            <!-- TÍTULO -->
+
+            <h1>
+
+                Bem-vindo à
+                <span>Alfa Educação</span>
+
+            </h1>
+
+
+
+            <!-- DESCRIÇÃO -->
+
+            <p class="descricao">
+
+                Educação que transforma o futuro.
+                Encontre materiais, conteúdos e recursos
+                preparados para ajudar você a alcançar
+                seus objetivos.
+
+            </p>
+
+
+
+            <!-- =================================================
+                 BOTÃO
+            ================================================== -->
+
+            <a
+                href="materiais.html"
+                class="botao-material">
+
+                Acessar Material
+
+                <span class="seta" aria-hidden="true">
+
+                    →
+
+                </span>
+
+            </a>
+
+
+
+            <!-- =================================================
+                 BENEFÍCIOS
+            ================================================== -->
+
+            <div class="beneficios">
+
+
+                <div class="beneficio">
+
+                    <span class="check" aria-hidden="true">
+
+                        ✓
+
+                    </span>
+
+                    Conteúdo de qualidade
+
+                </div>
+
+
+                <div class="beneficio">
+
+                    <span class="check" aria-hidden="true">
+
+                        ✓
+
+                    </span>
+
+                    Acesso rápido
+
+                </div>
+
+
+                <div class="beneficio">
+
+                    <span class="check" aria-hidden="true">
+
+                        ✓
+
+                    </span>
+
+                    Feito para estudantes
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+</body>
+
+</html>
